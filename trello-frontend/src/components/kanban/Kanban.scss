@@ -1,0 +1,106 @@
+/* kanban.scss */
+.kanban {
+    display: flex;
+    gap: 20px;
+    flex-direction: row; /* Agora os quadros ficam alinhados horizontalmente */
+    margin-top: 20px;
+    overflow-x: auto; /* Permite que o conteúdo seja rolado horizontalmente */
+    padding-bottom: 20px; /* Para dar um espaço ao final do Kanban */
+}
+
+.add-board {
+    margin-bottom: 20px;
+    input[type="text"] {
+        width: 300px;
+    }
+    button {
+        width: 150px;
+    }
+}
+
+.boards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: nowrap; /* Garantindo que os quadros não quebrem para a próxima linha */
+    margin-top: 15px;
+}
+
+.board {
+    width: 300px;
+    background-color: #f4f5f7;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Permite o rolamento dentro de cada quadro */
+    min-height: 400px; /* Garantindo que os quadros tenham uma altura mínima */
+    transition: all 0.3s ease; /* Transição suave para mover os cartões */
+    /* A borda do quadro muda para indicar interatividade */
+    &:hover {
+        border: 2px solid #007bff;
+    }
+}
+
+.cards {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column; /* Os cartões ficam empilhados dentro do quadro */
+    gap: 15px;
+    /* A área de cards tem um espaço maior entre os cartões */
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Adicionando estilos para arrastar e soltar cards */
+.card {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: grab;
+    transition: all 0.3s ease;
+    min-height: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:active {
+    cursor: grabbing;
+    transform: scale(1.05); /* Efeito visual de quando o card está sendo arrastado */
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.card-tag {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+}
